@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
+const Only = require("./music/Only-LeeHi-7076476.mp3");
+
 const HeartRender = React.memo(({ username }) => {
   const [showPopup, setShowPopup] = useState(true);
 
@@ -242,6 +244,19 @@ const HeartRender = React.memo(({ username }) => {
       onResize();
       render();
     });
+  }, []);
+
+  useEffect(() => {
+    const audio = new Audio(Only);
+
+    audio.currentTime = 29;
+
+    audio.volume = 0.3;
+
+    // Play the music on component mount
+    audio.play();
+
+    // Cleanup on component unmount
   }, []);
   return (
     <div className="box">

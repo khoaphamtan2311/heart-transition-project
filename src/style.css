@@ -142,6 +142,7 @@ body {
 
 .popup-content {
   background: #f0efefed;
+  width: 100%;
   padding: 30px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -197,5 +198,14 @@ body {
   }
   100% {
     transform: scale(0.8);
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .popup-content {
+    width: 80%; /* Adjust the width as needed for smaller screens */
+  }
+  .form-container h2 {
+    font-size: 80px;
   }
 }
