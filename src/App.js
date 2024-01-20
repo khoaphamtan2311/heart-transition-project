@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import HeartRender from "./HeartRender";
+import Login from "./Login";
 
 function App() {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
+  const handleProp = (e) => {
+    setUsername(e);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={isLoggedIn ? "container-1" : "container-2"}>
+      {isLoggedIn ? (
+        <HeartRender username={username} />
+      ) : (
+        <Login onLogin={handleLogin} handleProp={handleProp} />
+      )}
     </div>
   );
 }
